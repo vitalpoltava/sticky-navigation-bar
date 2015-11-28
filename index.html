@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sticky Navigation Bar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+</head>
+<body>
+<div id="main" ng-app="sticky">
+    <!-- Example layout -->
+    <style>
+
+        body {
+            padding: 2em;;
+        }
+
+        .main-wrapper {
+            padding: 2em;
+        }
+        .state {
+            padding: 1em;
+            border: 1px solid lightgray;
+            margin-bottom: -1px;
+        }
+
+        .details-wrapper {
+            padding: 1em;
+            border: 1px solid lightgray;
+        }
+
+        .details {
+            margin-bottom: 4em;
+        }
+
+        .navigation {
+            padding: 1em;
+            background-color: lightgray;
+            border: 1px solid gray;
+            margin-top: 1px;
+        }
+
+        .anchor {
+            height: 0px;
+        }
+    </style>
+    <script>
+        var sticky = angular.module('sticky', []);
+
+        // @ngInject
+        sticky.controller('MainController', function ($scope) {
+            $scope.usStates = [
+                { name: 'ALABAMA', abbreviation: 'AL'},
+                { name: 'ALASKA', abbreviation: 'AK'},
+                { name: 'AMERICAN SAMOA', abbreviation: 'AS'},
+                { name: 'ARIZONA', abbreviation: 'AZ'},
+                { name: 'ARKANSAS', abbreviation: 'AR'},
+                { name: 'CALIFORNIA', abbreviation: 'CA'},
+                { name: 'COLORADO', abbreviation: 'CO'},
+                { name: 'CONNECTICUT', abbreviation: 'CT'},
+                { name: 'DELAWARE', abbreviation: 'DE'},
+                { name: 'DISTRICT OF COLUMBIA', abbreviation: 'DC'},
+                { name: 'FEDERATED STATES OF MICRONESIA', abbreviation: 'FM'},
+                { name: 'FLORIDA', abbreviation: 'FL'},
+                { name: 'GEORGIA', abbreviation: 'GA'},
+                { name: 'GUAM', abbreviation: 'GU'},
+                { name: 'HAWAII', abbreviation: 'HI'},
+                { name: 'IDAHO', abbreviation: 'ID'},
+                { name: 'ILLINOIS', abbreviation: 'IL'},
+                { name: 'INDIANA', abbreviation: 'IN'},
+                { name: 'IOWA', abbreviation: 'IA'},
+                { name: 'KANSAS', abbreviation: 'KS'},
+                { name: 'KENTUCKY', abbreviation: 'KY'},
+                { name: 'LOUISIANA', abbreviation: 'LA'},
+                { name: 'MAINE', abbreviation: 'ME'},
+                { name: 'MARSHALL ISLANDS', abbreviation: 'MH'},
+                { name: 'MARYLAND', abbreviation: 'MD'},
+                { name: 'MASSACHUSETTS', abbreviation: 'MA'},
+                { name: 'MICHIGAN', abbreviation: 'MI'},
+                { name: 'MINNESOTA', abbreviation: 'MN'},
+                { name: 'MISSISSIPPI', abbreviation: 'MS'},
+                { name: 'MISSOURI', abbreviation: 'MO'},
+                { name: 'MONTANA', abbreviation: 'MT'},
+                { name: 'NEBRASKA', abbreviation: 'NE'},
+                { name: 'NEVADA', abbreviation: 'NV'},
+                { name: 'NEW HAMPSHIRE', abbreviation: 'NH'},
+                { name: 'NEW JERSEY', abbreviation: 'NJ'},
+                { name: 'NEW MEXICO', abbreviation: 'NM'},
+                { name: 'NEW YORK', abbreviation: 'NY'},
+                { name: 'NORTH CAROLINA', abbreviation: 'NC'},
+                { name: 'NORTH DAKOTA', abbreviation: 'ND'},
+                { name: 'NORTHERN MARIANA ISLANDS', abbreviation: 'MP'},
+                { name: 'OHIO', abbreviation: 'OH'},
+                { name: 'OKLAHOMA', abbreviation: 'OK'},
+                { name: 'OREGON', abbreviation: 'OR'},
+                { name: 'PALAU', abbreviation: 'PW'},
+                { name: 'PENNSYLVANIA', abbreviation: 'PA'},
+                { name: 'PUERTO RICO', abbreviation: 'PR'},
+                { name: 'RHODE ISLAND', abbreviation: 'RI'},
+                { name: 'SOUTH CAROLINA', abbreviation: 'SC'},
+                { name: 'SOUTH DAKOTA', abbreviation: 'SD'},
+                { name: 'TENNESSEE', abbreviation: 'TN'},
+                { name: 'TEXAS', abbreviation: 'TX'},
+                { name: 'UTAH', abbreviation: 'UT'},
+                { name: 'VERMONT', abbreviation: 'VT'},
+                { name: 'VIRGIN ISLANDS', abbreviation: 'VI'},
+                { name: 'VIRGINIA', abbreviation: 'VA'},
+                { name: 'WASHINGTON', abbreviation: 'WA'},
+                { name: 'WEST VIRGINIA', abbreviation: 'WV'},
+                { name: 'WISCONSIN', abbreviation: 'WI'},
+                { name: 'WYOMING', abbreviation: 'WY' }
+            ];
+        });
+
+    </script>
+    <h3>Sticky bar example</h3>
+    <div class="main-wrapper row" ng-controller="MainController">
+        <div class="col-sm-6">
+            <div class="state-wrapper row" ng-repeat="item in usStates track by $index">
+                <div class="s{{$index}} state col-sm-12">{{ item.name }}</div>
+            </div>
+            <div class="anchor">&nbsp;</div>
+            <div sticky-navigation=".anchor" class="navigation row">
+                <button class="btn btn-primary">Action</button>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="details-wrapper">
+                <div class="details">
+                    To check the functionality please scroll the list to the left up and down. Also you can resize browser window.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        The pre-Columbian era incorporates all period subdivisions in the history and prehistory of the Americas before the appearance of significant European influences on the American continents, spanning the time of the original settlement in the Upper Paleolithic period to European colonization during the Early Modern period. While technically referring to the era before Christopher Columbus' voyages of 1492 to 1504, in practice the term usually includes the history of American indigenous cultures until they were conquered or significantly influenced by Europeans, even if this happened decades or even centuries after Columbus' initial landing.
+    </div>
+    <script src="sticky.js"></script>
+</div>
+</body>
+</html>
