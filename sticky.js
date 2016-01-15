@@ -87,12 +87,11 @@
             $timeout(rePosition);
 
             // Custom check/refresh (i.e. for async transactions)
-            scope.$watch('refresher', utils.debounce(rePosition));
+            scope.$watch('refresher', utils.debounce(rePosition, 20));
 
             // Basic DOM events reaction for check/refresh
-            $($window).on('scroll', utils.debounce(rePosition, 20));
-
-            $($window).on('resize', utils.debounce(rePosition, 20));
+            $win.on('scroll', utils.debounce(rePosition, 20));
+            $win.on('resize', utils.debounce(rePosition, 20));
         }
 
         return {
