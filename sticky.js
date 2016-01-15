@@ -5,7 +5,7 @@
     /**
      * Sticky DOM Element
      *
-     * ver 0.1.0
+     * ver 0.1.1
      *
      * (c) Vitalii Omelkin, 2015
      * Licensed under the MIT License
